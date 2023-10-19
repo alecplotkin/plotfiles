@@ -2,14 +2,14 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/alpaca/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 # Path to default browser
 export BROWSER="/usr/bin/firefox" 
 
 # Update PYTHONPATH to include downloaded tools
 # export PYTHONPATH="${PYTHONPATH}:~/tools"
 # Add anaconda3 to PATH
-# export PATH="/home/alpaca/anaconda3/bin:$PATH"  # commented out by conda initialize
+# export PATH="$HOME/anaconda3/bin:$PATH"  # commented out by conda initialize
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -118,14 +118,14 @@ source ~/.profile
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/alpaca/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('$HOME/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/alpaca/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/alpaca/anaconda3/etc/profile.d/conda.sh"
+    if [ -f "$HOME/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "$HOME/anaconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/home/alpaca/anaconda3/bin:$PATH"
+        export PATH="$HOME/anaconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup

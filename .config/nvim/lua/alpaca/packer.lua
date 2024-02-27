@@ -46,13 +46,14 @@ return require('packer').startup(function(use)
             {'L3MON4D3/LuaSnip'},     -- Required
         }
     }
-    use {
-        'chipsenkbeil/distant.nvim',
-        branch = 'v0.3',
-        config = function()
-            require('distant'):setup()
-        end
-    }
+    use('snakemake/snakefmt')
+    -- use {
+    --     'chipsenkbeil/distant.nvim',
+    --     branch = 'v0.3',
+    --     config = function()
+    --         require('distant'):setup()
+    --     end
+    -- }
 
 
 end)

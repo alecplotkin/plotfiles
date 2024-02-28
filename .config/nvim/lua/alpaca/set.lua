@@ -29,3 +29,7 @@ vim.opt.updatetime = 50
 vim.opt.colorcolumn = "80"
 
 vim.g.mapleader = " "
+
+-- Code folding
+vim.opt.foldmethod = "indent"  -- Fall back, for when treesitter isn't working.
+vim.opt.foldlevel = 20

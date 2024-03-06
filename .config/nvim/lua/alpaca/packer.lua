@@ -13,14 +13,10 @@ return require('packer').startup(function(use)
         requires = { {'nvim-lua/plenary.nvim'} }
     }
 
-    use({
-        'rose-pine/neovim',
-        as = 'rose-pine',
-        config = function()
-            vim.cmd('colorscheme rose-pine')
-        end
-    })
+    -- Color schemes
+    use "rebelot/kanagawa.nvim"
 
+    -- Syntax highlighting
     use {
         'nvim-treesitter/nvim-treesitter',
         run = function()
@@ -29,21 +25,25 @@ return require('packer').startup(function(use)
         end,
     }
     use('nvim-treesitter/playground')
+
+    -- File switching
     use('theprimeagen/harpoon')
     use('mbbill/undotree')
     use('tpope/vim-fugitive')
+
+    -- Language servers
     use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v2.x',
-            requires = {
-                -- LSP Support
-                {'neovim/nvim-lspconfig'},             -- Required
-                {                                      -- Optional
-                'williamboman/mason.nvim',
-                run = function()
-                    pcall(vim.cmd, 'MasonUpdate')
-                end,
-                },
+        requires = {
+            -- LSP Support
+            {'neovim/nvim-lspconfig'},             -- Required
+            {                                      -- Optional
+            'williamboman/mason.nvim',
+            run = function()
+                pcall(vim.cmd, 'MasonUpdate')
+            end,
+            },
             {'williamboman/mason-lspconfig.nvim'}, -- Optional
 
             -- Autocompletion
@@ -54,13 +54,31 @@ return require('packer').startup(function(use)
     }
     use {'snakemake/snakemake', rtp='misc/vim', ft='snakemake'}
     use('snakemake/snakefmt')
+
+    -- Install jupynium and dependencies, for working with jupyter notebooks.
+    use { "kiyoon/jupynium.nvim", run = "pip3 install --user ." }
+    -- use { "kiyoon/jupynium.nvim", run = "conda run --no-capture-output -n jupynium pip install ." }
+    use { "rcarriga/nvim-notify" }   -- optional
+    use { "stevearc/dressing.nvim" } -- optional, UI for :JupyniumKernelSelect
     -- use {
-    --     'chipsenkbeil/distant.nvim',
-    --     branch = 'v0.3',
-    --     config = function()
-    --         require('distant'):setup()
-    --     end
-    -- }
+        --     'chipsenkbeil/distant.nvim',
+        --     branch = 'v0.3',
+        --     config = function()
+            --         require('distant'):setup()
+            --     end
+            -- }
+
+    -- ZenMode, for focused writing/coding.
+    use "folke/zen-mode.nvim"
+    use "m4xshen/smartcolumn.nvim"
+    use {
+        "lukas-reineke/headlines.nvim",
+        after = "nvim-treesitter",
+        config = function()
+            require("headlines").setup()
+        end,
+    }
 
 
-end)
+    end
+)

@@ -33,3 +33,6 @@ vim.g.mapleader = " "
 -- Code folding
 vim.opt.foldmethod = "indent"  -- Fall back, for when treesitter isn't working.
 vim.opt.foldlevel = 20
+
+-- Enable file type plugins
+vim.cmd("filetype plugin on")

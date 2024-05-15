@@ -26,6 +26,15 @@ return require('packer').startup(function(use)
     }
     use('nvim-treesitter/playground')
 
+    -- Snippets
+    use({
+        "L3MON4D3/LuaSnip",
+        -- follow latest release.
+        tag = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+        -- install jsregexp (optional!:).
+        run = "make install_jsregexp"
+    })
+
     -- File switching
     use('theprimeagen/harpoon')
     use('mbbill/undotree')
@@ -45,7 +54,6 @@ return require('packer').startup(function(use)
             end,
             },
             {'williamboman/mason-lspconfig.nvim'}, -- Optional
-
             -- Autocompletion
             {'hrsh7th/nvim-cmp'},     -- Required
             {'hrsh7th/cmp-nvim-lsp'}, -- Required

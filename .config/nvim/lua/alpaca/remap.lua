@@ -18,3 +18,7 @@ vim.keymap.set("n", "<leader>Y", "\"+Y")
 
 vim.keymap.set("n", "<leader>d", "\"_d")
 vim.keymap.set("v", "<leader>d", "\"_d")
+
+-- Code folding
+vim.keymap.set("n", "-", "<cmd>foldclose<CR>", { desc = "Close code fold" })
+vim.keymap.set("n", "+", "<cmd>foldopen<CR>", { desc = "Open code fold" })

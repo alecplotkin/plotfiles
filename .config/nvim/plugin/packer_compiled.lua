@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/alpaca/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/home/alpaca/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/home/alpaca/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/home/alpaca/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/alpaca/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
+local package_path_str = "/home/alpaca/.cache/nvim/packer_hererocks/2.1.1692716794/share/lua/5.1/?.lua;/home/alpaca/.cache/nvim/packer_hererocks/2.1.1692716794/share/lua/5.1/?/init.lua;/home/alpaca/.cache/nvim/packer_hererocks/2.1.1692716794/lib/luarocks/rocks-5.1/?.lua;/home/alpaca/.cache/nvim/packer_hererocks/2.1.1692716794/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/alpaca/.cache/nvim/packer_hererocks/2.1.1692716794/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -84,16 +84,33 @@ _G.packer_plugins = {
     path = "/home/alpaca/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
-  ["distant.nvim"] = {
-    config = { "\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\nsetup\fdistant\frequire\0" },
+  ["dressing.nvim"] = {
     loaded = true,
-    path = "/home/alpaca/.local/share/nvim/site/pack/packer/start/distant.nvim",
-    url = "https://github.com/chipsenkbeil/distant.nvim"
+    path = "/home/alpaca/.local/share/nvim/site/pack/packer/start/dressing.nvim",
+    url = "https://github.com/stevearc/dressing.nvim"
   },
   harpoon = {
     loaded = true,
     path = "/home/alpaca/.local/share/nvim/site/pack/packer/start/harpoon",
     url = "https://github.com/theprimeagen/harpoon"
+  },
+  ["headlines.nvim"] = {
+    config = { "\27LJ\2\n7\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\14headlines\frequire\0" },
+    load_after = {},
+    loaded = true,
+    needs_bufread = false,
+    path = "/home/alpaca/.local/share/nvim/site/pack/packer/opt/headlines.nvim",
+    url = "https://github.com/lukas-reineke/headlines.nvim"
+  },
+  ["jupynium.nvim"] = {
+    loaded = true,
+    path = "/home/alpaca/.local/share/nvim/site/pack/packer/start/jupynium.nvim",
+    url = "https://github.com/kiyoon/jupynium.nvim"
+  },
+  ["kanagawa.nvim"] = {
+    loaded = true,
+    path = "/home/alpaca/.local/share/nvim/site/pack/packer/start/kanagawa.nvim",
+    url = "https://github.com/rebelot/kanagawa.nvim"
   },
   ["lsp-zero.nvim"] = {
     loaded = true,
@@ -120,6 +137,11 @@ _G.packer_plugins = {
     path = "/home/alpaca/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
+  ["nvim-notify"] = {
+    loaded = true,
+    path = "/home/alpaca/.local/share/nvim/site/pack/packer/start/nvim-notify",
+    url = "https://github.com/rcarriga/nvim-notify"
+  },
   ["nvim-treesitter"] = {
     loaded = true,
     path = "/home/alpaca/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
@@ -140,11 +162,22 @@ _G.packer_plugins = {
     path = "/home/alpaca/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
-  ["rose-pine"] = {
-    config = { "\27LJ\2\n9\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0\26colorscheme rose-pine\bcmd\bvim\0" },
+  ["smartcolumn.nvim"] = {
     loaded = true,
-    path = "/home/alpaca/.local/share/nvim/site/pack/packer/start/rose-pine",
-    url = "https://github.com/rose-pine/neovim"
+    path = "/home/alpaca/.local/share/nvim/site/pack/packer/start/smartcolumn.nvim",
+    url = "https://github.com/m4xshen/smartcolumn.nvim"
+  },
+  snakefmt = {
+    loaded = true,
+    path = "/home/alpaca/.local/share/nvim/site/pack/packer/start/snakefmt",
+    url = "https://github.com/snakemake/snakefmt"
+  },
+  snakemake = {
+    loaded = false,
+    needs_bufread = true,
+    only_cond = false,
+    path = "/home/alpaca/.local/share/nvim/site/pack/packer/opt/snakemake/misc/vim",
+    url = "https://github.com/snakemake/snakemake"
   },
   ["telescope.nvim"] = {
     loaded = true,
@@ -160,18 +193,40 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/alpaca/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
+  },
+  ["zen-mode.nvim"] = {
+    loaded = true,
+    path = "/home/alpaca/.local/share/nvim/site/pack/packer/start/zen-mode.nvim",
+    url = "https://github.com/folke/zen-mode.nvim"
   }
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: rose-pine
-time([[Config for rose-pine]], true)
-try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0\26colorscheme rose-pine\bcmd\bvim\0", "config", "rose-pine")
-time([[Config for rose-pine]], false)
--- Config for: distant.nvim
-time([[Config for distant.nvim]], true)
-try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\nsetup\fdistant\frequire\0", "config", "distant.nvim")
-time([[Config for distant.nvim]], false)
+-- Runtimepath customization
+time([[Runtimepath customization]], true)
+vim.o.runtimepath = vim.o.runtimepath .. ",/home/alpaca/.local/share/nvim/site/pack/packer/opt/snakemake/misc/vim"
+time([[Runtimepath customization]], false)
+-- Load plugins in order defined by `after`
+time([[Sequenced loading]], true)
+vim.cmd [[ packadd nvim-treesitter ]]
+vim.cmd [[ packadd headlines.nvim ]]
+
+-- Config for: headlines.nvim
+try_loadstring("\27LJ\2\n7\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\14headlines\frequire\0", "config", "headlines.nvim")
+
+time([[Sequenced loading]], false)
+vim.cmd [[augroup packer_load_aucmds]]
+vim.cmd [[au!]]
+  -- Filetype lazy-loads
+time([[Defining lazy-load filetype autocommands]], true)
+vim.cmd [[au FileType snakemake ++once lua require("packer.load")({'snakemake'}, { ft = "snakemake" }, _G.packer_plugins)]]
+time([[Defining lazy-load filetype autocommands]], false)
+vim.cmd("augroup END")
+vim.cmd [[augroup filetypedetect]]
+time([[Sourcing ftdetect script at: /home/alpaca/.local/share/nvim/site/pack/packer/opt/snakemake/misc/vim/ftdetect/snakemake.vim]], true)
+vim.cmd [[source /home/alpaca/.local/share/nvim/site/pack/packer/opt/snakemake/misc/vim/ftdetect/snakemake.vim]]
+time([[Sourcing ftdetect script at: /home/alpaca/.local/share/nvim/site/pack/packer/opt/snakemake/misc/vim/ftdetect/snakemake.vim]], false)
+vim.cmd("augroup END")
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

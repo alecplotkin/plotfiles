@@ -17,12 +17,19 @@ lsp.preset('recommended')
 -- 	}
 -- })
 
-lsp.ensure_installed({
-	'pylsp',
-	'jedi_language_server',
-	'lua_ls',
-	'r_language_server'
+require('mason').setup({})
+require('mason-lspconfig').setup({
+    ensure_installed = {
+	    'pylsp',
+	    'jedi_language_server',
+	    'lua_ls',
+	    'r_language_server'
+    },
+    handlers = {
+        lsp.default_setup,
+    },
 })
+
 
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}

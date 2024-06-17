@@ -1,5 +1,8 @@
 return {
+    -- Format todo for python.
     s("todo", fmt("# TODO", { })),
+
+    -- main() boiler-plate for executable scripts.
     s("main", fmt([[
         import argparse
         import sys
@@ -19,6 +22,8 @@ return {
         if __name__ == '__main__':
             main(sys.argv[1:])
         ]], { i(1) })),
+
+    -- Function skeleton.
     s("def", fmt([[
         def {}({}):
             return {}

@@ -63,6 +63,9 @@ return require('packer').startup(function(use)
     use {'snakemake/snakemake', rtp='misc/vim', ft='snakemake'}
     use('snakemake/snakefmt')
 
+    -- Debugging
+    use('mfussenegger/nvim-dap')
+
     -- Install jupynium and dependencies, for working with jupyter notebooks.
     -- use { "kiyoon/jupynium.nvim", run = "pip3 install --user ." }
     use { "kiyoon/jupynium.nvim", run = "conda run --no-capture-output -n jupynium pip install ." }

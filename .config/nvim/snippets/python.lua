@@ -30,4 +30,22 @@ return {
 
 
         ]], { i(1, "function"), i(2), i(3, "None"), })),
+
+    -- Markdown cell in jupynium.
+    -- todo: make this specific to .ju.py files
+    s("md", fmt([[
+        # %% [md]
+        """
+        {}
+        """
+
+        ]], { i(1) })),
+
+    -- Code cell in jupynium.
+    -- todo: make this specific to .ju.py files
+    s("cc", fmt([[
+        # %%
+        {}
+
+        ]], { i(1) })),
 }

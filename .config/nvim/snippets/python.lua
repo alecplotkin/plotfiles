@@ -31,21 +31,19 @@ return {
 
         ]], { i(1, "function"), i(2), i(3, "None"), })),
 
-    -- Markdown cell in jupynium.
-    -- todo: make this specific to .ju.py files
-    s("md", fmt([[
-        # %% [md]
-        """
-        {}
-        """
+    -- New cell in jupynium notebook
+    s("###",
+        c(1, {
+            -- Code cell
+            { t("# %%"), i(1) },
+            -- Markdown cell
+            fmt([[
+                # %% [md]
+                """
+                {}
+                """
+            ]], { i(1) }),
+        })
 
-        ]], { i(1) })),
-
-    -- Code cell in jupynium.
-    -- todo: make this specific to .ju.py files
-    s("cc", fmt([[
-        # %%
-        {}
-
-        ]], { i(1) })),
+    ),
 }

@@ -90,6 +90,11 @@ return require('packer').startup(function(use)
         end,
     }
 
+    -- vimtex for writing tex files
+    use "lervag/vimtex"
+        -- config = function()
+        --     vim.g.vimtex_view_method = "zathura"
+        -- end,
 
     end
 )

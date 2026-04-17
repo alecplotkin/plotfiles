@@ -1,41 +1,25 @@
-require'nvim-treesitter.configs'.setup {
-  -- A list of parser names, or "all" (the five listed parsers should always be installed)
-  ensure_installed = {
-      "python",
-      "c",
-      "lua",
-      "vim",
-      "vimdoc",
-      "query",
-      "yaml",
-      "markdown",
-      "markdown_inline",
-      "snakemake",
-  },
-
-  -- Install parsers synchronously (only applied to `ensure_installed`)
-  sync_install = false,
-
-  -- Automatically install missing parsers when entering buffer
-  -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
-  auto_install = false,
-
-  -- List of parsers to ignore installing (for "all")
-  ignore_install = { "javascript", "latex", },
-
-  indent = { enable = true },
-
-  highlight = {
-    enable = true,
-    disable = { "latex", },
-
-    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-    -- Using this option may slow down your editor, and you may see some duplicate highlights.
-    -- Instead of true it can also be a list of languages
-    -- additional_vim_regex_highlighting = false,
-  },
+require('nvim-treesitter').setup {
+    install_dir = vim.fn.stdpath('data') .. '/site'
 }
 
+require('nvim-treesitter').install { 'python', 'lua', 'c', 'vim', 'vimdoc', 'query', 'yaml', 'markdown', 'markdown_inline', 'snakemake' }
+
+-- Neovim only auto-starts treesitter for lua/markdown/help/query; enable it
+-- for everything else that has an installed parser.
+vim.api.nvim_create_autocmd('FileType', {
+    callback = function(ev)
+        pcall(vim.treesitter.start, ev.buf)
+    end,
+})
+
+-- Disable treesitter highlighting for latex (VimTeX handles it instead)
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = { 'tex', 'latex' },
+    callback = function(ev)
+        vim.treesitter.stop(ev.buf)
+    end,
+})
+
+-- Treesitter-based folding
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"

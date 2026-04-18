@@ -47,6 +47,15 @@ return {
                 cmd = { 'pylsp' },
                 filetypes = { 'python' },
                 root_markers = { 'pyproject.toml', 'setup.py', 'setup.cfg', '.git' },
+                settings = {
+                    pylsp = {
+                        plugins = {
+                            pycodestyle = {
+                                maxLineLength = 88,
+                            },
+                        }
+                    }
+                }
             })
 
             vim.lsp.config('r_language_server', {

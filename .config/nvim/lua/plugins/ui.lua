@@ -36,9 +36,9 @@ return {
         'm4xshen/smartcolumn.nvim',
         event = 'BufReadPost',
         opts = {
-            colorcolumn = "80",
+            colorcolumn = "120",
             disabled_filetypes = { "help", "text", "markdown" },
-            custom_colorcolumn = {},
+            custom_colorcolumn = { python = "89" },
             scope = "file",
         },
     },

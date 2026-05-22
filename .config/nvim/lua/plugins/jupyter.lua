@@ -55,7 +55,7 @@ return {
 
                 jupynium_file_pattern = { "*.ju.*" },
 
-                use_default_keybindings = true,
+                use_default_keybindings = false,
                 textobjects = {
                     use_default_keybindings = true,
                 },
@@ -81,5 +81,13 @@ hi! link JupyniumMarkdownCellContent CursorLine
 hi! link JupyniumMagicCommand Keyword
 ]]
         end,
+        keys = {
+            { '<localleader>s', '<cmd>JupyniumStartAndAttachToServer<CR>', desc = 'Start jupynium server and open in browser' },
+            { '<localleader>a', '<cmd>JupyniumStartSync<CR>', desc = 'Sync current buffer with jupyter server' },
+            { '<localleader>q', '<cmd>JupyniumStopSync<CR>', desc = 'Stop syncing current buffer' },
+            { '<localleader>c', '<cmd>JupyniumKernelInterrupt<CR>', desc = 'Interrupt kernel' },
+            { '<localleader>r', '<cmd>JupyniumKernelRestart<CR>', desc = 'Restart kernel' },
+            { '<localleader>x', '<cmd>JupyniumExecuteSelectedCells<CR>', mode = { 'n', 'v' }, desc = 'Execute selected cells' },
+        },
     },
 }

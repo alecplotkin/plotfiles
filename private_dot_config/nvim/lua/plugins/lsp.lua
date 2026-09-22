@@ -7,10 +7,16 @@ return {
             'hrsh7th/cmp-nvim-lsp',
         },
         config = function()
+            -- Servers to install and enable; R only on machines that have R
+            local servers = { 'pylsp', 'jedi_language_server', 'lua_ls' }
+            if vim.fn.executable('Rscript') == 1 then
+                table.insert(servers, 'r_language_server')
+            end
+
             -- Mason: manages server binary installation
             require('mason').setup()
             require('mason-lspconfig').setup({
-                ensure_installed = { 'pylsp', 'jedi_language_server', 'lua_ls', 'r_language_server' }
+                ensure_installed = servers
             })
 
             -- Capabilities: advertise nvim-cmp completion to all servers
@@ -64,7 +70,7 @@ return {
             })
 
             -- Activate servers (start when a matching filetype is opened)
-            vim.lsp.enable({ 'pylsp', 'jedi_language_server', 'lua_ls', 'r_language_server' })
+            vim.lsp.enable(servers)
 
             -- Keymaps on attach
             vim.api.nvim_create_autocmd('LspAttach', {

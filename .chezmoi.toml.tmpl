@@ -1,0 +1,6 @@
+{{- /* Per-machine data. Rendered to ~/.config/chezmoi/chezmoi.toml by `chezmoi init`. */ -}}
+{{- /* Never committed: it lives outside the source directory. */ -}}
+{{- $work := promptBoolOnce . "work" "Is this a work machine" -}}
+
+[data]
+    work = {{ $work }}

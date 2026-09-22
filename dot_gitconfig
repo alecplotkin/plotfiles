@@ -1,0 +1,8 @@
+[user]
+    name = Alec Plotkin
+    email = alp.plotkin@gmail.com
+    useConfigOnly = true      # fail loudly instead of guessing aplotkin@wmbdf-9d4.(none)
+
+# Machine-local overrides, not tracked by chezmoi. Silently skipped if absent.
+[include]
+    path = ~/.gitconfig.local

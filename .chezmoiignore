@@ -1,1 +1,5 @@
 .config/nvim/.netrwhist
+
+# Plugin lockfile: nvim rewrites this on every :Lazy update, which fights
+# chezmoi. Each machine keeps its own; versions are not pinned across machines.
+.config/nvim/lazy-lock.json

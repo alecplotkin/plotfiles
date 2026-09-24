@@ -52,6 +52,7 @@ Leader is `<Space>`; local leader is `,`. Notable mappings:
 | `<c-j>` / `<c-k>` | LuaSnip: jump forward/backward in snippet |
 | `<c-l>` | LuaSnip: cycle choice node |
 | `-` / `+` | Close/open fold |
+| `<leader>x` | Markdown: toggle checkbox on current line / visual selection |
 
 ## LSP
 
